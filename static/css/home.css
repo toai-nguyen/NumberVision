@@ -135,6 +135,7 @@ form {
 .text-solution-container {
   padding: 10px;
   height: 10vh;
+  background-color: #fff;
 }
 #btn-submit {
   width: max-content;
