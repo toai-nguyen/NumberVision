@@ -103,6 +103,8 @@ form {
 }
 form {
   padding: 5vw;
+  margin-right: 3vw;
+  margin-left: 3vw;
 }
 .content {
   width: 40vw;
