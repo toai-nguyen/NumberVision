@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <title>Home</title>
+</head>
+<body>
+    <header class="section section-navigator" id="header">
+        <nav class="navigator align-item-center" style="width: fit-content;">
+            <div class="logo-container align-item-center">
+                <div class="logo align-item-center">
+                    <a href="">
+                        <img src="../static/image/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="section section-home">
+        <div class= "flex container">
+            <div class="content flex upload-image">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="upload_image-field" style="margin-top: 10px;" autocomplete="off" required >
+                    <button type="submit" value="Submit" id="btn-submit"> Send </button>
+                </form>
+                <p>
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                          <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+                    {% endwith %}
+                </p>
+            </div>
+            <div class="flex content show-solution">
+                <div class="image-solution-container flex">
+                    <p style="padding-bottom: 10px;">Detect your number:</p>
+                    {% if filename %}
+                    <img src="../static/answer/saved_image.jpg" id="answer-img" >
+                    {% endif %}
+                </div>
+                <div class="text-solution-container">
+                    {% if predict_text %}
+                    <p>Your number is: {{predict_text}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
