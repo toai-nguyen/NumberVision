@@ -22,7 +22,8 @@
         <div class= "flex container">
             <div class="content flex upload-image">
                 <form action="/" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file" id="upload_image-field" style="margin-top: 10px;" autocomplete="off" required >
+                    <input type="file" name="file" id="upload_image-field" style="margin-top: 10px;" autocomplete="off" required onchange="previewImage(event)">
+                    <img id="preview-img" style="display: none; margin-top: 10px; max-width: 100%; height: auto;">
                     <button type="submit" value="Submit" id="btn-submit"> Send </button>
                 </form>
                 <p>
@@ -54,4 +55,15 @@
 
     </section>
 </body>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('preview-img');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+    </script>
 </html>
