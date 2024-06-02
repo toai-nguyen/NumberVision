@@ -16,17 +16,6 @@ def paddingImage(thresh):
   padded = cv2.resize(padded, (28, 28))
   return padded
 
-def paddingImage(thresh):
-  (tH, tW) = thresh.shape
-  dX = int(max(0, 36 - tW) / 2.0)
-  dY = int(max(0, 36 - tH) / 2.0)
-  kernel = np.ones((5,5), np.uint8)
-  padded = cv2.copyMakeBorder(thresh, top=dY, bottom=dY,
-    left=dX, right=dX, borderType=cv2.BORDER_CONSTANT,
-    value=(0, 0, 0))
-  padded = cv2.resize(padded, (28, 28))
-  return padded
-
 
 def getContoursPosition(img):
   pos = []
